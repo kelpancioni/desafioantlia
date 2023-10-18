@@ -1,0 +1,39 @@
+<div class="business-details">
+   <div class="title-business-details">
+     <span>Detalhes da Empresa</span>
+   </div>
+   <form [formGroup]="form" class="business-form">
+     <mat-form-field appearance="outline">
+       <mat-label>Nome</mat-label>
+       <input matInput formControlName="name" />
+     </mat-form-field>
+     <mat-form-field appearance="outline">
+       <mat-label>Business</mat-label>
+       <input matInput formControlName="business" />
+     </mat-form-field>
+     <mat-form-field appearance="outline">
+       <mat-label>Valuation</mat-label>
+       <input matInput formControlName="valuation" />
+     </mat-form-field>
+     <mat-form-field appearance="outline">
+       <mat-label>CNPJ</mat-label>
+       <input matInput formControlName="cnpj" />
+     </mat-form-field>
+     <mat-form-field appearance="outline">
+       <mat-label>Ativo?</mat-label>
+       <mat-select formControlName="active">
+         <mat-option
+           *ngFor="
+             let active of [
+               { value: true, viewValue: 'Sim' },
+               { value: false, viewValue: 'Não' }
+             ]
+           "
+           [value]="active.value"
+         >
+           {{ active.viewValue }}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+   </form>
+ </div>

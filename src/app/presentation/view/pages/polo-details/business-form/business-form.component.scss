@@ -1,0 +1,11 @@
+.title-business-details {
+   padding: 0 0 24px;
+}
+
+.business-form {
+   display: grid;
+   grid-template-columns: 200px 200px 200px 200px 200px;
+   mat-form-field {
+       padding: 0 12px 0 0;
+   }
+}

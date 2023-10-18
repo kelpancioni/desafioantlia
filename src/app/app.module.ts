@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { PresentationModule } from './presentation/presentation.module';
+import { DomainModule } from './domain/domain.module';
+import { InfraModule } from './infra/infra.module';
+import { DataModule } from './data/data.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
-    BrowserModule
+    PresentationModule,
+    DomainModule,
+    InfraModule,
+    DataModule
   ],
   providers: [],
   bootstrap: [AppComponent]

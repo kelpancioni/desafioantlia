@@ -1,0 +1,18 @@
+<div class="container">
+
+  <div class="title-container">
+    <div class="title">
+      <span class="title-text">Polo {{name.value}}</span>
+      <span class="title-subtext"> Exibindo detalhes do polo {{name.value}}#{{id}} </span>
+    </div>
+  </div>
+
+  <app-address-form [form]="form"></app-address-form>
+  <app-business-form [form]="form"></app-business-form>
+
+  <div class="footer-container">
+    <app-button t-label="Voltar" routerLink="['']" t-color_style="accent"></app-button>
+    <app-button t-label="Salvar" [t-large]="true" (click)="onClickSalvar()"></app-button>
+  </div>
+
+</div>

@@ -1,0 +1,29 @@
+<div class="form-details">
+  <div class="address-details">
+    <div class="title-address-details">
+      <span>Detalhes do Endereço</span>
+    </div>
+    <form [formGroup]="form" class="address-form">
+      <mat-form-field appearance="outline">
+        <mat-label>CEP</mat-label>
+        <input matInput formControlName="cep" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Nome da Rua</mat-label>
+        <input matInput formControlName="logradouro" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Bairro</mat-label>
+        <input matInput formControlName="bairro" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="uf" />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Cidade</mat-label>
+        <input matInput formControlName="localidade" />
+      </mat-form-field>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="title-container">
+    <div class="title">
+      <span class="title-text">Polos Itaú</span>
+      <span class="title-subtext"
+        >Confira abaixo alguns dos principais polos do Itaú</span
+      >
+    </div>
+    <mat-form-field appearance="outline">
+      <mat-label>Pesquisar...</mat-label>
+      <input matInput (keyup)="applyFilter($event)" #input />
+    </mat-form-field>
+  </div>
+  <app-polo-list-table (dataSourceEmitter)="setDataSource($event)"></app-polo-list-table>
+</div>

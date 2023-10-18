@@ -1,0 +1,17 @@
+
+.table-container {
+   display: grid;
+
+
+   .mat-column-active {
+      .active-color {
+         text-align: center;
+         font-size: 16px;
+         color: #ff7573;
+         &-green {
+            color: #6bf375;
+         }
+      }
+    }
+
+}

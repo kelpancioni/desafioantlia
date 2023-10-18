@@ -1,0 +1,9 @@
+.base-container {
+  padding: 48px var(--margin) 0;
+}
+
+@media only screen and (max-width: 991px) { 
+  .base-container {
+    padding: 8px var(--marginMobile) 0;
+  }
+}
