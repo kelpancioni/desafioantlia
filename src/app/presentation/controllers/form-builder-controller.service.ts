@@ -22,10 +22,10 @@ export class FormBuilderControllerService {
       active: ['', Validators.required],
       cep: ['', Validators.required],
       cnpj: ['', [Validators.required, Validators.compose([v => this.cpfCnpjValidator.validaCpfCnpj(v.value) ? null : {cpferror: 'CPF Inválido'}])]],
-      logradouro: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9 ]*")]],
-      localidade: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9 ]*")]],
-      bairro: ['', [Validators.required, Validators.pattern("[a-zA-Z0-9 ]*")]],
-      uf: ['', [Validators.required, Validators.compose([v => this.ufValidator.ufValidator(v.value)])]],
+      logradouro: ['', [Validators.pattern("[a-zA-Z0-9 ]*")]],
+      localidade: ['', [Validators.pattern("[a-zA-Z0-9 ]*")]],
+      bairro: ['', [Validators.pattern("[a-zA-Z0-9 ]*")]],
+      uf: ['', [Validators.compose([v => this.ufValidator.ufValidator(v.value)])]],
     })
   }
 }
