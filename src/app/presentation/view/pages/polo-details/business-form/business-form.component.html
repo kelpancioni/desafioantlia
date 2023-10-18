@@ -13,11 +13,17 @@
      </mat-form-field>
      <mat-form-field appearance="outline">
        <mat-label>Valuation</mat-label>
-       <input matInput formControlName="valuation" />
+       <input mask="separator.2" 
+       thousandSeparator="." 
+       decimalMarker="," 
+       [leadZero]="true" 
+       prefix="R$ "
+       matInput 
+       formControlName="valuation" />
      </mat-form-field>
      <mat-form-field appearance="outline">
        <mat-label>CNPJ</mat-label>
-       <input matInput formControlName="cnpj" />
+       <input mask="00.000.000/0000-00" inputmode="numeric" matInput formControlName="cnpj" />
      </mat-form-field>
      <mat-form-field appearance="outline">
        <mat-label>Ativo?</mat-label>

@@ -6,6 +6,7 @@ import { BusinessEntity } from 'src/app/domain/entities/business-entity';
 import { CepEntity } from 'src/app/domain/entities/cep-entity';
 import { IBusinessController } from 'src/app/domain/interfaces/controllers/ibusiness-controller';
 import { ICepController } from 'src/app/domain/interfaces/controllers/icep-controller';
+import { FormBuilderControllerService } from 'src/app/presentation/controllers/form-builder-controller.service';
 
 @Component({
   selector: 'app-polo-details',
@@ -16,8 +17,7 @@ export class PoloDetailsComponent implements OnInit {
   constructor(
     private businessController: IBusinessController,
     private route: ActivatedRoute,
-    private formBuilder: FormBuilder,
-    private cepController: ICepController
+    private formBuilder: FormBuilderControllerService,
   ) {}
 
   subscriptions: Subscription[] = [];
@@ -25,6 +25,8 @@ export class PoloDetailsComponent implements OnInit {
   form: FormGroup;
 
   id: string
+  businessName: string
+
   name: AbstractControl
   business: AbstractControl
   valuation: AbstractControl
@@ -37,7 +39,7 @@ export class PoloDetailsComponent implements OnInit {
   uf: AbstractControl
 
   ngOnInit(): void {
-    this.createForm();
+    this.form = this.formBuilder.buildForm()
 
     this.name = this.form.get('name')
     this.business = this.form.get('business')
@@ -59,7 +61,8 @@ export class PoloDetailsComponent implements OnInit {
           }),
         )
         .subscribe((business: BusinessEntity) => {
-          this.form.patchValue(business);
+          this.form.patchValue(business)
+          this.businessName = this.name.value
         })
     );
   }
@@ -70,23 +73,9 @@ export class PoloDetailsComponent implements OnInit {
     });
   }
 
-  private createForm() {
-    this.form = this.formBuilder.group({
-      name: ['', Validators.required],
-      business: ['', Validators.required],
-      valuation: ['', Validators.required],
-      active: ['', Validators.required],
-      cep: ['', Validators.required],
-      cnpj: ['', Validators.required],
-      //
-      logradouro: [''],
-      localidade: [''],
-      bairro: [''],
-      uf: [''],
-    });
-  }
-
   onClickSalvar() {
-    console.log(this.form.value)
+    this.subscriptions.push(
+      this.businessController.postBusiness(this.form.value).subscribe(console.log)
+    )
   }
 }

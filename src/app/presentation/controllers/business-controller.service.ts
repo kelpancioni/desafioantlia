@@ -20,4 +20,8 @@ export class BusinessControllerService implements IBusinessController {
   getBusinessById(id: number): Observable<BusinessEntity> {
     return this.businessUseCase.getBusinessById(id);
   }
+
+  postBusiness(business: BusinessEntity): Observable<BusinessEntity> {
+    return this.businessUseCase.postBusiness(business);
+  }
 }

@@ -6,6 +6,7 @@ import { PoloListModule } from './polo-list/polo-list.module';
 import { PoloDetailsModule } from './polo-details/polo-details.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 
@@ -18,6 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
     PoloListModule,
     PoloDetailsModule,
     PagesRoutingModule,
+    NgxMaskModule.forChild()
   ],
   exports: [PagesRoutingModule]
 })

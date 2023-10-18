@@ -6,7 +6,7 @@
     <form [formGroup]="form" class="address-form">
       <mat-form-field appearance="outline">
         <mat-label>CEP</mat-label>
-        <input matInput formControlName="cep" />
+        <input mask="00000-000" inputmode="numeric" matInput formControlName="cep" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Nome da Rua</mat-label>
@@ -18,7 +18,7 @@
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Estado</mat-label>
-        <input matInput formControlName="uf" />
+        <input mask="SS" matInput formControlName="uf" />
       </mat-form-field>
       <mat-form-field appearance="outline">
         <mat-label>Cidade</mat-label>

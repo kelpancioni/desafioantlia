@@ -18,4 +18,9 @@ export class BusinessUseCase implements IBusinessUseCase {
   getBusinessById(id: number): Observable<BusinessEntity> {
     return this.businessRepository.getBusinessById(id);
   }
+
+  postBusiness(business: BusinessEntity): Observable<BusinessEntity> {
+    return this.businessRepository.postBusiness(business);
+  }
+
 }

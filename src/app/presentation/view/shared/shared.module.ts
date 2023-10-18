@@ -3,6 +3,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './components/button/button.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 const components = [
   HeaderComponent, 
@@ -13,11 +14,17 @@ const components = [
   declarations: [
     ...components
   ],
-  imports: [RouterModule, MaterialModule],
+  imports: [
+    RouterModule, 
+    MaterialModule, 
+    NgxMaskModule.forRoot()
+  ],
   exports: [
     ...components,
     RouterModule, 
-    MaterialModule],
+    MaterialModule,
+    NgxMaskModule
+  ],
   providers: [],
 })
 export class SharedModule {}
