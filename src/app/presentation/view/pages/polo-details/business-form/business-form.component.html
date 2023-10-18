@@ -1,10 +1,10 @@
 <div class="business-details">
    <div class="title-business-details">
-     <span>Detalhes da Empresa</span>
+     <span>{{ 'BUSINESS_DETAILS' | translate }}</span>
    </div>
    <form [formGroup]="form" class="business-form">
      <mat-form-field appearance="outline">
-       <mat-label>Nome</mat-label>
+       <mat-label>{{ 'BUSINESS_NAME' | translate }}</mat-label>
        <input matInput formControlName="name" />
      </mat-form-field>
      <mat-form-field appearance="outline">
@@ -17,7 +17,7 @@
        thousandSeparator="." 
        decimalMarker="," 
        [leadZero]="true" 
-       prefix="R$ "
+       [prefix]="('CURRENCY_PREFIX' | translate)"
        matInput 
        formControlName="valuation" />
      </mat-form-field>
@@ -26,13 +26,13 @@
        <input mask="00.000.000/0000-00" inputmode="numeric" matInput formControlName="cnpj" />
      </mat-form-field>
      <mat-form-field appearance="outline">
-       <mat-label>Ativo?</mat-label>
+       <mat-label>{{ 'BUSINESS_STATUS' | translate }}</mat-label>
        <mat-select formControlName="active">
          <mat-option
            *ngFor="
              let active of [
-               { value: true, viewValue: 'Sim' },
-               { value: false, viewValue: 'Não' }
+               { value: true, viewValue: ('SELECT_YES' | translate) },
+               { value: false, viewValue: ('SELECT_NO' | translate) }
              ]
            "
            [value]="active.value"

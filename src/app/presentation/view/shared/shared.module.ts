@@ -6,6 +6,7 @@ import { ButtonComponent } from './components/button/button.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TranslateModule } from '@ngx-translate/core';
 
 const components = [
   HeaderComponent, 
@@ -22,6 +23,7 @@ const components = [
     BrowserAnimationsModule,
     NgxMaskModule.forRoot(),
     ToastrModule.forRoot(),
+    TranslateModule
   ],
   exports: [
     ...components,
@@ -29,7 +31,8 @@ const components = [
     MaterialModule,
     BrowserAnimationsModule,
     NgxMaskModule,
-    ToastrModule
+    ToastrModule,
+    TranslateModule
   ],
   providers: [],
 })

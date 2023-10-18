@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { error } from 'console';
 import { ToastrService } from 'ngx-toastr';
-import { Subscription, switchMap } from 'rxjs';
+import { Subscription, switchMap, tap } from 'rxjs';
 import { BusinessEntity } from 'src/app/domain/entities/business-entity';
 import { CepEntity } from 'src/app/domain/entities/cep-entity';
 import { IBusinessController } from 'src/app/domain/interfaces/controllers/ibusiness-controller';
@@ -21,6 +22,7 @@ export class PoloDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private formBuilder: FormBuilderControllerService,
     private router: Router,
+    private translate: TranslateService,
     private toastr: ToastrService
   ) {}
 
@@ -81,12 +83,12 @@ export class PoloDetailsComponent implements OnInit {
   }
 
   onClickSalvar() {
-    console.log(this.form.valid)
     if(!this.form.valid) return
     this.subscriptions.push(
-      this.businessController.postBusiness(this.form.value).subscribe((business: BusinessEntity) => {
-        this.toastr.success('Dados salvos com sucesso');
-        console.log(business)
+      this.businessController.postBusiness(this.form.value).pipe(
+        switchMap(_ => this.translate.get('TOASTR_SAVED')),
+      ).subscribe(toastrMsg => {
+        this.toastr.success(toastrMsg);
       })
     )
   }

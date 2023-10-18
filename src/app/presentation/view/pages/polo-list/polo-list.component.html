@@ -1,13 +1,13 @@
 <div class="container">
   <div class="title-container">
     <div class="title">
-      <span class="title-text">Polos Itaú</span>
-      <span class="title-subtext"
-        >Confira abaixo alguns dos principais polos do Itaú</span
-      >
+      <span class="title-text">{{ 'ITAU_HUBS' | translate}}</span>
+      <span class="title-subtext">
+        {{ 'CHECKOUT_TITLE' | translate}}
+      </span>
     </div>
     <mat-form-field appearance="outline">
-      <mat-label>Pesquisar...</mat-label>
+      <mat-label>{{ 'LABEL_INPUT_SEARCH' | translate }}</mat-label>
       <input matInput (keyup)="applyFilter($event)" #input />
     </mat-form-field>
   </div>

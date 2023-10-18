@@ -12,15 +12,9 @@ export class ButtonComponent implements OnInit {
   @Input('t-large') large: boolean = false
   @Input('t-disabled') disabled: boolean = false
 
-  @Output() clickEmitter = new EventEmitter()
-
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onClickEmitter() {
-    this.clickEmitter.emit()
   }
 
 }

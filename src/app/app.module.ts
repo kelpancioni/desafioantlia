@@ -5,7 +5,6 @@ import { PresentationModule } from './presentation/presentation.module';
 import { DomainModule } from './domain/domain.module';
 import { InfraModule } from './infra/infra.module';
 import { DataModule } from './data/data.module';
-import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [

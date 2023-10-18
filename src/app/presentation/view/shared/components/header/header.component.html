@@ -3,7 +3,7 @@
     <img src="../assets/img/logo_itau.png" />
   </div>
   <div class="language">
-    <span> PT </span>
+    <span>{{ 'LABEL_LANG' | translate}}</span>
   </div>
   <div class="user">
     <button mat-button [matMenuTriggerFor]="menu">
@@ -20,8 +20,8 @@
       </div>
     </button>
     <mat-menu #menu="matMenu" xPosition="before">
-      <button mat-menu-item>Configurações</button>
-      <button mat-menu-item>Sair</button>
+      <button mat-menu-item (click)="changeLang()">{{ 'MENU_LANG' | translate}}</button>
+      <button mat-menu-item>{{ 'MENU_LOGOUT' | translate}}</button>
     </mat-menu>
   </div>
 </div>

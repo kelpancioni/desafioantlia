@@ -1,27 +1,27 @@
 <div class="form-details">
   <div class="address-details">
     <div class="title-address-details">
-      <span>Detalhes do Endereço</span>
+      <span>{{'ADDRESS_DETAILS' | translate}}</span>
     </div>
     <form [formGroup]="form" class="address-form">
       <mat-form-field appearance="outline">
-        <mat-label>CEP</mat-label>
+        <mat-label>{{ 'ZIP_CODE' | translate }}</mat-label>
         <input mask="00000-000" inputmode="numeric" matInput formControlName="cep" />
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Nome da Rua</mat-label>
+        <mat-label>{{ 'STREET_NAME' | translate }}</mat-label>
         <input matInput formControlName="logradouro" />
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Bairro</mat-label>
+        <mat-label>{{ 'DISTRICT_NAME' | translate }}</mat-label>
         <input matInput formControlName="bairro" />
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Estado</mat-label>
+        <mat-label>{{ 'STATE_NAME' | translate }}</mat-label>
         <input matInput formControlName="uf" />
       </mat-form-field>
       <mat-form-field appearance="outline">
-        <mat-label>Cidade</mat-label>
+        <mat-label>{{ 'CITY_NAME' | translate }} Cidade</mat-label>
         <input matInput formControlName="localidade" />
       </mat-form-field>
     </form>

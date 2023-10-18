@@ -27,7 +27,6 @@ export class BusinessRepository implements IBusinessRepository {
    }
 
    postBusiness(business: BusinessEntity): Observable<BusinessEntity> {
-      console.log('oi')
       return of<BusinessEntity>(business)
    }
 }

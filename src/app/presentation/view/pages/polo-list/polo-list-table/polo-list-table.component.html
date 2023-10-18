@@ -1,7 +1,7 @@
 <div class="table-container">
    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
      <ng-container matColumnDef="name">
-       <th mat-header-cell *matHeaderCellDef mat-sort-header> Nome </th>
+       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'COLUMN_NAME' | translate}}</th>
        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
      </ng-container>
      <ng-container matColumnDef="business">
@@ -10,16 +10,16 @@
      </ng-container>
      <ng-container matColumnDef="valuation">
        <th mat-header-cell *matHeaderCellDef mat-sort-header> Valuation </th>
-       <td mat-cell *matCellDef="let row"> {{row.valuation | currency:'BRL'}} </td>
+       <td mat-cell *matCellDef="let row"> {{row.valuation | currency: ('CURRENCY' | translate) }} </td>
      </ng-container>
      <ng-container matColumnDef="active">
-       <th mat-header-cell *matHeaderCellDef mat-sort-header> Situação </th>
+       <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'COLUMN_ACTIVE' | translate}}</th>
        <td mat-cell *matCellDef="let row"> 
         <mat-icon class="active-color" [class.active-color-green]="row.active">circle</mat-icon>
       </td>
      </ng-container>
      <ng-container matColumnDef="action">
-       <th mat-header-cell *matHeaderCellDef> Ação </th>
+       <th mat-header-cell *matHeaderCellDef>{{ 'COLUMN_ACTION' | translate }}</th>
        <td mat-cell *matCellDef="let row"> 
          <button mat-button [routerLink]="['/polo-details/'+row.id]">
            <mat-icon>visibility</mat-icon>

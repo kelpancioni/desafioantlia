@@ -2,8 +2,8 @@
 
   <div class="title-container">
     <div class="title">
-      <span class="title-text">Polo {{businessName}}</span>
-      <span class="title-subtext"> Exibindo detalhes do polo {{businessName}}#{{id}} </span>
+      <span class="title-text">{{ 'POLO_BUSINESS_NAME' | translate }} {{businessName}}</span>
+      <span class="title-subtext"> {{ 'SHOW_POLO_DETAILS' | translate }} {{businessName}}#{{id}} </span>
     </div>
   </div>
 
@@ -11,8 +11,8 @@
   <app-business-form [form]="form"></app-business-form>
 
   <div class="footer-container">
-    <app-button t-label="Voltar" routerLink="['']" t-color_style="accent"></app-button>
-    <app-button t-label="Salvar" [t-large]="true" (click)="onClickSalvar()"></app-button>
+    <app-button t-label="{{ 'LABEL_BUTTON_BACK' | translate }}" routerLink="['']" t-color_style="accent"></app-button>
+    <app-button t-label="{{ 'LABEL_BUTTON_SAVE' | translate }}" [t-large]="true" (click)="onClickSalvar()"></app-button>
   </div>
 
 </div>
