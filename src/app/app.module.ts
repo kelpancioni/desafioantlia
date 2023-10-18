@@ -16,7 +16,6 @@ import { NgxMaskModule } from 'ngx-mask';
     DomainModule,
     InfraModule,
     DataModule,
-    NgxMaskModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

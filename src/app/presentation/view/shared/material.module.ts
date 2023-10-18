@@ -12,6 +12,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 const materialModules = [
     MatTableModule,
@@ -23,7 +24,8 @@ const materialModules = [
     MatOptionModule,
     MatSelectModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSnackBarModule
 ]
 
 

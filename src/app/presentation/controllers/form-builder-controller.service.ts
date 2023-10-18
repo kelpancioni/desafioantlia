@@ -22,8 +22,8 @@ export class FormBuilderControllerService {
       active: ['', Validators.required],
       cep: ['', Validators.required],
       cnpj: ['', [Validators.required, Validators.compose([v => this.cpfCnpjValidator.validaCpfCnpj(v.value) ? null : {cpferror: 'CPF Inválido'}])]],
-      logradouro: ['', [Validators.pattern("[a-zA-Z0-9 ]*")]],
-      localidade: ['', [Validators.pattern("[a-zA-Z0-9 ]*")]],
+      logradouro: ['', [Validators.pattern("^[a-zA-ZÀ-úà-úÈ-ÓÑñè-ó0-9\\s]+$")]],
+      localidade: ['', [Validators.pattern("^[a-zA-ZÀ-úà-úÈ-ÓÑñè-ó0-9\\s]+$")]],
       bairro: ['', [Validators.pattern("[a-zA-Z0-9 ]*")]],
       uf: ['', [Validators.compose([v => this.ufValidator.ufValidator(v.value)])]],
     })

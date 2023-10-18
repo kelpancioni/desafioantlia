@@ -4,6 +4,8 @@ import { MaterialModule } from './material.module';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './components/button/button.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const components = [
   HeaderComponent, 
@@ -17,13 +19,17 @@ const components = [
   imports: [
     RouterModule, 
     MaterialModule, 
-    NgxMaskModule.forRoot()
+    BrowserAnimationsModule,
+    NgxMaskModule.forRoot(),
+    ToastrModule.forRoot(),
   ],
   exports: [
     ...components,
     RouterModule, 
     MaterialModule,
-    NgxMaskModule
+    BrowserAnimationsModule,
+    NgxMaskModule,
+    ToastrModule
   ],
   providers: [],
 })

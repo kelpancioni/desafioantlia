@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { error } from 'console';
+import { ToastrService } from 'ngx-toastr';
 import { Subscription, switchMap } from 'rxjs';
 import { BusinessEntity } from 'src/app/domain/entities/business-entity';
 import { CepEntity } from 'src/app/domain/entities/cep-entity';
@@ -18,6 +20,8 @@ export class PoloDetailsComponent implements OnInit {
     private businessController: IBusinessController,
     private route: ActivatedRoute,
     private formBuilder: FormBuilderControllerService,
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   subscriptions: Subscription[] = [];
@@ -61,6 +65,9 @@ export class PoloDetailsComponent implements OnInit {
           }),
         )
         .subscribe((business: BusinessEntity) => {
+          if (!business) {
+            this.router.navigateByUrl('/', { replaceUrl: true });
+          }
           this.form.patchValue(business)
           this.businessName = this.name.value
         })
@@ -74,8 +81,13 @@ export class PoloDetailsComponent implements OnInit {
   }
 
   onClickSalvar() {
+    console.log(this.form.valid)
+    if(!this.form.valid) return
     this.subscriptions.push(
-      this.businessController.postBusiness(this.form.value).subscribe(console.log)
+      this.businessController.postBusiness(this.form.value).subscribe((business: BusinessEntity) => {
+        this.toastr.success('Dados salvos com sucesso');
+        console.log(business)
+      })
     )
   }
 }

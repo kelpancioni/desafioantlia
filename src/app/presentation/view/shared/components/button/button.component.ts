@@ -12,7 +12,7 @@ export class ButtonComponent implements OnInit {
   @Input('t-large') large: boolean = false
   @Input('t-disabled') disabled: boolean = false
 
-  @Output() click = new EventEmitter()
+  @Output() clickEmitter = new EventEmitter()
 
   constructor() { }
 
@@ -20,7 +20,7 @@ export class ButtonComponent implements OnInit {
   }
 
   onClickEmitter() {
-    this.click.emit()
+    this.clickEmitter.emit()
   }
 
 }

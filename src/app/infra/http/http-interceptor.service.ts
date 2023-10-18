@@ -3,6 +3,8 @@ import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,8 @@ import { Router } from '@angular/router';
 export class HttpInterceptorService implements HttpInterceptor {
 
   constructor(
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -22,7 +25,7 @@ export class HttpInterceptorService implements HttpInterceptor {
 
     switch (response.status) {
       case 400:
-        console.log('Error', response.status);
+        this.toastr.error('Erro inesperado', response.message);
         break;
       case 401:
         this.router.navigateByUrl('/', { replaceUrl: true });
@@ -31,7 +34,7 @@ export class HttpInterceptorService implements HttpInterceptor {
       case 406:
       case 409:
       case 500:
-        console.log('Ocorreu um erro inesperado de servidor.');
+        this.toastr.error('Serviço indisponível', 'Tente mais tarde');
         break;
     }
 
